@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IVANTILL情人節99</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+      *{
+        box-sizing: border-box;
+        padding: 0;
+        margin:0;
+      }
+      :root{
+        --rotate-speed:45;
+        --count:8;
+        --easing:cubic-bezier(0.000,0.37,1.000,0.63);
+      }
+      body{
+        margin:0;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+        padding-block: 30dvh;
+        background: aliceblue;
+      }
+      .void{
+        width: 100%;
+        max-width: 1200px;margin:auto;
+        position: relative;
+        aspect-ratio: 1/1;
+      }
+      ul:hover*{
+        animation-play-state: paused;
+      }
+      ul{
+        list-style-type: none;
+        margin:0;
+        position: relative;
+        width:100%;
+        aspect-ratio: 1/1;
+        z-index: 1;
+      }
+      li{
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        width:100%;
+        animation: rotateCW calc(var(--rotate-speed)*1s)var(--easing)infinite ;
+      }
+      .card{
+        width:27%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding:16px 24px;
+        gap:8px;
+        background: azure;
+        box-shadow: 0px 4px 12px rgba(70,0,255,0.1),0px 16px 32px rgba(165,135,255,0.1);
+        border-radius: 12px;font:400 14px'';
+        color: darkturquoise;
+        animation:rotateCCW calc(var(--rotate-speed)*1s)var(--easing)infinite;
+      }
+      .card img{
+        width:100%;
+      }
+      a{
+        text-decoration:none;
+        color: unset;
+        display:block;
+        height: 80px;
+        overflow:hidden;
+      }
+      .model-name{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 150%;
+        color: darkcyan;
+        display: block;
+      }
+      svg{
+        position: absolute;
+        top:0;
+        left: 0;
+        z-index: 0;
+      }
+
+      li:nth-child(3),
+      li:nth-child(3) .card{
+        animation-delay: calc((var(--rotate-speed)/var(--count))* -2s);
+      }
+      li:nth-child(4),
+      li:nth-child(4) .card{
+        animation-delay: calc((var(--rotate-speed)/var(--count))* -3s);
+      }
+      li:nth-child(5),
+      li:nth-child(5) .card{
+        animation-delay: calc((var(--rotate-speed)/var(--count))* -4s);
+      }
+      li:nth-child(6),
+      li:nth-child(6) .card{
+        animation-delay: calc((var(--rotate-speed)/var(--count))* -5s);
+      }
+      li:nth-child(2),
+      li:nth-child(2) .card{
+        animation-delay: calc((var(--rotate-speed)/var(--count))* -1s);
+      }
+      @keyframes rotateCW {
+        from{
+          transform: translate3d(0px,-50%,-1px) rotate(-45deg);
+        }
+        to{
+          transform: translate3d(0px,-50%,0px) rotate(-315deg);
+        }
+      }
+      @keyframes rotateCCW {
+        from{
+          transform: rotate(45deg);
+        }
+        to{
+          transform: rotate(315deg);
+        }
+      }
+      .center-circle{
+        position: absolute;
+        width: 230px;
+        aspect-ratio: 1/1;
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%,-50%);
+        box-shadow: 0px 18px 36px -18px rgba(12,5,200,0.5),
+        0px 30px 60px -12px rgba(12,180,200,0.25);
+        border-radius: 50%;
+        background-size: cover;
+        background: azure -35px 0;
+      }
+      .second-circle{
+        position: absolute;
+        width: 40%;
+        aspect-ratio: 1/1;
+        left: 50%;
+        top:25%;
+        transform: translate(-50%,-50%);
+        background: darkturquoise;
+        opacity: 0.7;
+        box-shadow: 0px 18px 36px -18px rgba(12,5,46,0.3),
+        0px 30px 60px -12px rgba(12,5,46,0.25);
+        border-radius: 50%;
+        background-image: url("ivti/kisskiss.jpg");
+      }
+      .last-circle{
+        position: absolute;
+        width: 60%;
+        aspect-ratio: 1/1;
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%,-50%);
+        background: aquamarine;
+        opacity: 0.25;
+        box-shadow: 0px 18px 36px -18px rgba(12,5,100,0.9),
+        0px 30px 60px -12px rgba(12,50,100,0.9);
+        border-radius: 50%;
+        background-image: url("ivti/till.jpg");
+      }
+      .crop{
+        -webkit-mask-image:-webkit-linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0)50%,rgba(0,0,0,1)50%,rgba(0,0,0,1));
+      }
+      .mask{
+        position: absolute;
+        top:-48%;
+        left: -0.09%;
+        bottom: 0;
+        width: 50%;background-position: 100% 50%;
+        background-repeat: no-repeat;
+        background-image: radial-gradient(100% 50% at 100% 50%,rgba(60,26,229,0.9)0%,rgba(50,220,180,0.9)20%,
+        rgba(40,210,180,0.4)40%,
+        rgba(20,200,170,0.2)60%,
+        rgba(10,233,200,0.05)90%,rgba(10,233,210,0.01)100%);
+      }
+      .mask:after{
+        content:"";
+        position: absolute;
+        width:1px;
+        height:100%;
+        right:0;
+        display: block;
+        background-image: linear-gradient(180deg,rgba(60,26,229,0)0%,#008b8b 50%,rgba(60,26,229,0)100%);
+      }
+      @keyframes fade {
+        from{
+          opacity: 0;
+          filter:blur(20px);
+          box-shadow: none;
+          transform: scale(.8)translateY(15vh);
+        }
+      }
+      .cards{
+        position: relative;
+        align-items: center;
+        display:grid;
+        gap:2rem;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(5,30ch);
+      }
+      .incrad{
+        animation: fade both;
+        animation-timeline:view();
+        animation-range: contain 0% contain 50%;
+        border-radius: 10px;
+        line-height: 6;
+        font-size: 32px;
+        letter-spacing: 5px;
+        color: darkcyan;
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+        background-image: linear-gradient(to bottom right,
+        #4a98ff,
+        #87b9ff,
+        #42e3ff,
+        #42ffef,
+        #42ffd3,
+        #5effc4,
+        #32a5fc);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .incrad img{
+        width:100%;
+        height:100%;
+      }
+      .incrad:nth-of-type(4n){
+        grid-column: span2;
+      }
+
+    </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="void" id="void">
+    <div class="crop">
+      <ul class="card-list" style="--count:6;">
+        <li>
+          <div class="card"><a href="">
+            <span>Happy</span>
+            <span>Valentine'sDay</span>
+          </a></div>
+        </li>
+        <li>
+          <div class="card"><a href="">
+            <img src="ivti/blackk.jpg" width="200"  title="ivtixql99">
+          </a></div>
+        </li>
+                <li>
+          <div class="card"><a href="">
+            <span>2025/</span>
+            <span>8/29</span>
+          </a></div>
+        </li>
+        <li>
+          <div class="card"><a href="">
+            <img src="ivti/blackk.jpg" width="200"  title="ivtixql99">
+          </a></div>
+        </li>
+                <li>
+          <div class="card" align="center"><a href="">
+            <span>IV</span>
+            <span>Ti  99</span>
+          </a></div>
+        </li>
+        <li>
+          <div class="card"><a href="">
+            <img src="ivti/kiss2.0.png"  width="80%"  title="ivtixql99">
+          </a></div>
+        </li>
+      </ul>
+      <div class="last-circle"></div>
+      <div class="second-circle"></div>
+    </div>
+
+    <div class="mask"></div>
+    <div class="center-circle"></div>
+
+  <div class="cards">
+    <div class="incrad">2025</div>
+    <div class="incrad">8/29</div>
+    <div class="incrad"><img src="ivti/GvkKlCoWkAEuyj_.png" width="200"></div>
+    <div class="incrad">IVTI</div>
+    <div class="incrad">99</div>
+    <div class="incrad">IVTI</div>
+    <div class="incrad"><img src="ivti/GvkKnOubsAAUIKv.png" width="200"></div>
+    <div class="incrad"><img src="ivti/ivti.jpg" width="200"></div>
+    <div class="incrad"><img src="ivti/tillback.jpg" width="200"/></div>
+    <div class="incrad"><img src="ivti/ivan.jpg" width="200"></div>
+    <div class="incrad"><img src="ivti/ivanblack.jpg" width="200"></div>
+    <div class="incrad">IVTI</div>
+    <div class="incrad"><img src="iivti/blackk.jpg" width="200"></div>
+    <div class="incrad">1314</div>
+    <div class="incrad">1314</div>
+    <div class="incrad">1314</div>
+    <div class="incrad">1314</div>
+  </div>
+  <audio class="audio" src="songs/ivtistillwithyou.mp3" controls onpause="pauseSong()"></audio>
+  <div class="music">
+    <div class="white"></div>
+    <div class="album"><img src="ivti/blackk.jpg" width="200px" class="active" /></div>
+    <h2 class="title" align="center">Muisic Name</h2>
+    <div class="player">
+      <div class="bg">
+      <audio src=""></audio>
+      <div class="btns">
+        <span class="prev"><ion-icon name="play-back-circle-outline"></ion-icon></span>
+        <span class="playPause"><ion-icon name="play-circle-outline"></ion-icon></span>
+        <span class="next"><ion-icon name="play-forward-circle-outline"></ion-icon></span>
+      </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script>
+    const title = document.querySelector('.title');
+    const prev = document.querySelector('.prev');
+    const playPause = document.querySelector('.playPause');
+    const next = document.querySelector('.next');
+    const audio = document.querySelector('audio');
+    const album=document.querySelector(".album");
+
+    const songList=[
+            {
+      src:"songs/ivtistillwithyou.mp3",
+      songName:"sTillwithU"
+        },
+      {
+      src:"ThereforeU&me-ivan.wav",
+      songName:"ThereforeU&Me"
+    }
+    ];
+    let song_Playing=false;
+
+    function playSong(){
+      song_Playing=true;
+      album.classList.add('active');
+      audio.play();
+    }
+    function pauseSong(){
+      song_Playing=false;
+      album.classList.remove('active');
+      audio.pause();}
+
+    playPause.addEventListener("click",()=>(song_Playing ? pauseSong(): playSong()));
+
+    function loadSong(songList){
+      title.textContent = songList.songName;
+      audio.src = songList.src;
+    }
+    let i =0;
+    loadSong(songList[i]);
+  </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Ubuntu', sans-serif;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #beede8;
+}
+.music{
+    position:absolute;
+    top:-725px;
+    left:30px;
+    right:375px;
+    bottom:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-size:cover;
+}
+
+.album{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    overflow:hidden;
+    border:9px  solid #5effc4;
+    transition: 0.3s ease;
+}
+.album::before{
+    content:"";
+    width:25px;
+    height:25px;
+    background-color:#5effc4;
+    position:absolute;
+    top:50%;
+    right:0;
+    bottom:0;
+    left:0;
+    border-radius:50%;
+    margin:-100px auto auto auto;
+    background-size:cover;
+    box-shadow: 0 0 6px#5effc4;
+    z-index:1;
+}
+.album.active{
+    top:-60px;
+    box-shadow: 0 0 0 4px #beede8,
+     0  30px 50px -15px #5effc4;
+}
+.album.active .active {
+    animation: rotatealbumcover 5s linear infinite;
+}
+.album img{
+    display:block;
+    width:100%;
+    height:100%;
+}
+.title{
+    font-weight:400;
+    font-size:2em;
+    color:#2e4569;
+    display:inline-flex;
+    text-align:center;
+}
+.player{
+    position:relative;
+    width:500px;
+    min-height:100px;
+    background: #ffffff;
+    border:2px solid #5effc4;
+    border-radius:80px;
+    padding:20px 30px;
+    background: url("ivti/kisskisskiss2.0.png")no-repeat center ;
+    opacity:0.8;
+    overflow: hidden;
+    box-shadow:-10px -10px 15px #beede8, 10px 10px 15px rgba(0,0,0,0.1), inset -5px -5px 15px #beede8, inset 5px 5px 15px rgba(0,0,0,0.1);
+}
+.btns{
+    position:relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+.btns span{
+    position:relative;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:#d6fff8;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:#2e6569;
+    cursor:pointer;
+    box-shadow: inset 0 -5px 5px #beede8,  0 5px 10px #beede8, 0 10px 15px rgba(0,0,0,0.1);
+}
+.btns span:active{
+    color:#4a98ff;
+    box-shadow: inset 0 -7px 5px #beede8 ,inset 0 5px 10px #87b9ff;
+}
+.btns span.playPause{
+    width:100px;
+    height:100px;
+}
+.btns span ion-icon{
+    font-size:2em;
+}
+.btns span.playPause ion-icon{
+    font-size:3em;
+}
+.audio{
+    width:0px;
+    height:0px;
+    background:#beede8;
+    overflow:hidden;
+}
+@keyframes rotatealbumcover {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
