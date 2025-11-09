@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<title>test</title>
+<style>
+    *{
+        align-items: center;
+        box-sizing:border-box;
+        padding: 0;
+        margin: 0;
+    }
+   
+
+    body{
+       min-block-size: 100%;
+       display:grid;
+       place-content:center;
+       right:50x;
+       background: #181847;
+       overflow-x: hidden;
+    }
+    .background{
+        background-image: url("pics/allphainon.jpg");
+        background-size: cover;
+        background-position: 50% 50%;
+        height:100vh;
+        font:900 28rem '';
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: inset 0px 8px 20px  #ffb692,10px 10px 100px 10px #d9c195;
+    }
+    .background::before{
+        content:'';
+        background-size:cover;
+        background-image: inherit;
+        background-position: 50% 50%;
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        z-index: -99;
+    
+    }
+    h1{
+        position: absolute;
+        text-align:left;
+        width:100%;
+        top:10%;
+        letter-spacing: 10px;
+        color:#ffffff;
+    }
+
+
+    @keyframes slide-fade-in{
+        from{
+            opacity: 0;
+            box-shadow: none;
+            transform: scale(.7)translateY(10vh);
+            filter:blur(20px)
+        }
+    }
+     @keyframes swip-in {
+        from{
+            opacity: 0;
+            box-shadow:none;
+            transform: translateX(-20vh);
+            filter:blur(10px)
+        }
+    }
+    @keyframes up-indown {
+        from{
+            opacity: 0;
+            box-shadow: none;
+            transform: scale(.7)translateY(10vh);
+            filter: blur(30px);
+        }
+        
+    }
+     .cards{
+        position: relative;
+        left:20%;
+        display:grid;
+        gap:3rem;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(4,30vh);
+    }
+    .mask{
+        position: absolute;
+        top:-48%;
+        left: 0%;
+        bottom: 0;
+        opacity: 60%;
+        width: 100%;background-position: 100% 50%;
+        
+        background-image: linear-gradient(to top,rgb(255, 212, 138)0%,rgba(255, 224, 140, 0.527)20%,
+        rgba(255, 225, 178, 0.378)40%,
+        rgba(255, 199, 142, 0)60%,
+        rgba(255, 154, 2, 0.05)90%,rgba(255, 255, 255, 0.01)100%);
+      }
+      h2{
+        animation: swip-in both;
+        animation-timeline: view();
+        animation-range:contain 0% contain 50%;
+        position: absolute;
+        text-align:center;
+        letter-spacing: 1px;
+        top: 85vh;
+        width: 100%;
+        color:white;
+        text-align: left;
+        transform: translateX(-50%)
+        padding = 30px;
+        background-color: rgba(94, 41, 0, 0.3);
+        
+    }
+    .card{
+        left:20%;
+        animation:slide-fade-in both;
+        animation-timeline: view();
+        animation-range:contain 0% contain 50%;
+        border-radius: 10px;
+        line-height:6;
+        box-shadow: inset 0px 8px 20px  #ffb692,0px 8px 20px #de92ff;
+        font-size:32px;
+        letter-spacing: 5px;
+        color:#ffffff;
+        width:100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: linear-gradient(to bottom right,
+            #f5db96,
+            #fff39c,
+            #b7ffee,
+            hsl(228, 71%, 83%),
+            #c2a1ec,
+            #ffbd97);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card img{
+        width: 100%;
+        height: 100%;
+    }
+    .card:nth-of-type(4n){
+        grid-column: span 4;
+    }
+    .card:nth-of-type(5n){
+        grid-column: span 2;
+    }
+    .card:nth-of-type(7n){
+        grid-column: span 2;
+    }
+.bottomid {
+    display:flex;
+    height:200px;
+    background-image: linear-gradient(to bottom ,
+            #ffb223,
+            #ffc15e);
+    box-shadow: inset 0px 8px 20px  #ffc5a8;
+    background-position: 50%;
+    background-size: 100vh;
+    letter-spacing: 2px;
+    font:100 10rem '';
+    font-size: 16px;
+    align-items:center;
+    text-align: right;
+    color:#08082d;
+    
+}
+.bottomidtext{
+    position: relative;
+    left:63%;
+}
+.bottomid img{
+    position:relative; 
+    left:2%;
+    align-items: center;
+}
+.page2{
+    position: relative;
+    animation:up-indown both ;
+    animation-timeline: view();
+    animation-range:contain 0% contain 70%;
+    display:grid;
+    background: url("pics/3Phainoninpaint.png");
+    background-position: 15% 5%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    justify-items: left;
+    box-shadow: inset 0px 8px 20px  #ffb692,10px 10px 100px 10px #d9c195;
+    border-radius:50% ;
+}
+.page2::before{
+        animation:up-indown both ;
+        animation-timeline: view();
+        animation-range:contain 0% contain 45%;
+        content:'';
+        background-size:cover;
+        background-image: inherit;
+        background-position: 50% 50%;
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        z-index: -99;}
+
+.page2 span{
+    padding: 250px;
+    
+    position: relative;
+    color: white;
+    width: 1600px;
+    height: 910px;
+    backdrop-filter: blur(5px);
+    backface-visibility: inherit;
+    text-align: center;
+    align-items: center;
+}
+#pic {
+    display: flex;
+    gap:20px;
+    position: absolute;
+    top: 250px;
+    right:23%;
+}
+#pic img{
+    
+    width:55vh;
+    height:50vh;
+    top:100vh;
+    border-radius: 10px;
+}
+#phainon,#ivti2{
+    position: relative;
+    filter:blur(0px);
+}
+
+
+
+
+
+
+    
+
+</style>
+
+<html>
+<head>
+
+</head>
+<body>
+    
+    <h1 >FORM HONKAI STAR ROLL</br>It is Phainon</h1>
+    <div class="background"><span>Phainon</span></div>
+    <div class="mask"></div>
+    <h2>
+        Phainon is a 5★ character from the Physical element who follows the Path of Destruction.
+         Aedes Elysiae, a remote frontier village isolated from the world, 
+         now lives on only in cryptic legends.
+    </h2>
+    <div class="page2">
+        
+        <span>HI!This is my practice!
+        <span id="pic">
+        <span id="phainon">
+        <img  src="pics/phainonhtmltext.png" >
+        </span>
+        <span id="ivti2">
+        <a href="htmls/Valentine99.html"><img src="pics/ivtic.png"></a>
+        </span>
+        </span>
+        </span>
+    </div>
+    <div class="cards">
+        <div class="card">text</div>
+        <div class="card"><img src="pics/cutecup.jpg"></div>
+        <div class="card"><img src="pics/phainonhead.jpg" ></div>
+        <div class="card"><img src="pics/updownPkami.jpg"></div>
+        <div class="card">text</div>
+        <div class="card">text</div>
+        <div class="card"><img src="pics/mordenP.jpg"  title="ohno"></div>
+        <div class="card"><img src="pics/phainonandeight.jpg"  title="ohno"></div>
+        <div class="card">text</div>
+        <div class="card">text</div>
+        <div class="card"><img src="pics/goldblood.jpg" ></div>
+        <div class="card"><img src="pics/phainonhead.jpg" ></div>
+        <div class="card">text</div>
+        <div class="card"><img src="pics/laydown.jpg" ></div>
+        <div class="card">text</div>
+        <div class="card"><img src="pics/pgoldbloodkami.jpg" ></div>
+        <div class="card">text</div>
+        <div class="card">text</div>
+        <div class="card"><img src="pics/phainonhead.jpg" ></div>
+        <div class="card">text</div>
+        <div class="card"><img src="pics/the13goldblood.jpg"></div>
+   </div>
+   <div class="bottomcard">
+   <div class="bottomid">
+    <img src="pics/oc2.png" title="mydrwing" width="200">
+   <div class="bottomidtext">I'm Cherry From F4SR</br>NO.:03</br>gmail:13628437@student.fatima.edu.mo</div>
+   </div>
+
+   </div>
+
+   <script>
+    const background = document.querySelector(".background")
+
+    document.addEventListener('scroll',()=>{
+        const scrollY = window.scrollY
+
+        if(scrollY !== 0){
+            background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`;
+            
+        }else{
+            background.style.backgroundPosition = ''
+        }
+    })
+   </script>
+</body>
+</html>
